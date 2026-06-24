@@ -13,6 +13,7 @@ env:
 permissions:
   contents: write
   pull-requests: write
+  id-token: write
 
 jobs:
   release:
@@ -38,11 +39,6 @@ jobs:
       - name: Setup Mise
         uses: jdx/mise-action@v4
 
-      - name: Configure NPM Authentication
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: printf '//registry.npmjs.org/:_authToken=%s\n' "$NPM_TOKEN" > ~/.npmrc
-
       - name: Install Dependencies
         run: bun install --frozen-lockfile
 
@@ -56,6 +52,6 @@ jobs:
           publish: bun run changeset:publish
 
           commit: "chore: version packages"
-          title: "chore: version packages"
+          title: Version packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
