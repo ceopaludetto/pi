@@ -1,0 +1,13 @@
+# Modules
+node_modules
+
+# Build artifacts
+dist
+.turbo
+
+# Environment variables
+.env*
+!.env.example
+
+# macOS
+.DS_Store

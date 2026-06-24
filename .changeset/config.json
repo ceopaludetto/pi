@@ -1,0 +1,11 @@
+{
+	"changelog": ["@changesets/changelog-github", { 
+		"repo": "ceopaludetto/pi", 
+		"disableThanks": true 
+	}],
+	"commit": false,
+	"fixed": [["@ceo.paludetto/*"]],
+	"access": "public",
+	"baseBranch": "main",
+	"updateInternalDependencies": "patch"
+}

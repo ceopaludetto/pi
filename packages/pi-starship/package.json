@@ -1,0 +1,57 @@
+{
+	"name": "@ceo.paludetto/pi-starship",
+	"type": "module",
+	"version": "0.0.0",
+	"description": "Starship-style status bar for pi with mode, model, tokens and path segments",
+	"pi": {
+		"extensions": [
+			"./dist/index.mjs"
+		]
+	},
+	"author": {
+		"name": "Carlos Paludetto",
+		"email": "ceo.paludetto@gmail.com"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ceopaludetto/pi",
+		"directory": "packages/pi-starship"
+	},
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		},
+		"./package.json": "./package.json"
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.cts",
+	"scripts": {
+		"build": "tsdown",
+		"test": "bun test"
+	},
+	"peerDependencies": {
+		"@earendil-works/pi-ai": ">=0.79.0",
+		"@earendil-works/pi-coding-agent": ">=0.79.0",
+		"@earendil-works/pi-tui": ">=0.79.0",
+		"@gotgenes/pi-permission-system": ">=16.0.0",
+		"pi-mcp-adapter": ">=2.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@gotgenes/pi-permission-system": { "optional": true },
+		"pi-mcp-adapter": { "optional": true }
+	},
+	"devDependencies": {
+		"@ceo.paludetto/pi-utilities": "workspace:*",
+		"@earendil-works/pi-ai": "^0.80.2",
+		"@earendil-works/pi-coding-agent": "^0.80.2",
+		"@earendil-works/pi-tui": "^0.80.2"
+	}
+}

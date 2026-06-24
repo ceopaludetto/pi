@@ -1,0 +1,25 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"globalDependencies": ["tsconfig.json"],
+	"tasks": {
+		"build": {
+			"description": "Build workspace packages",
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**"],
+			"outputLogs": "new-only"
+		},
+		"test": {
+			"description": "Run all tests",
+			"dependsOn": ["build"],
+			"outputs": [],
+			"outputLogs": "new-only"
+		},
+		"//#lint": {
+			"description": "Run eslint and sherif"
+		},
+		"//#lint:fix": {
+			"description": "Run eslint and sherif fixing the problems",
+			"cache": false
+		}
+	}
+}

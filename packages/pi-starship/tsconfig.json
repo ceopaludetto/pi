@@ -1,0 +1,12 @@
+{
+	"extends": "@total-typescript/tsconfig/bundler/no-dom",
+	"compilerOptions": {
+		"paths": {
+			"~/*": ["./src/*"]
+		},
+
+		"types": ["node"]
+	},
+	"include": ["**/*.ts"],
+	"exclude": ["node_modules", "dist"]
+}

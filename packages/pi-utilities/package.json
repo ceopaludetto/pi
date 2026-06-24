@@ -1,0 +1,27 @@
+{
+	"name": "@ceo.paludetto/pi-utilities",
+	"type": "module",
+	"version": "0.0.0",
+	"private": true,
+	"description": "Shared internal color and formatting utilities for pi packages",
+	"author": {
+		"name": "Carlos Paludetto",
+		"email": "ceo.paludetto@gmail.com"
+	},
+	"license": "MIT",
+	"sideEffects": false,
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		},
+		"./package.json": "./package.json"
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.cts",
+	"scripts": {
+		"build": "tsdown",
+		"test": "bun test"
+	}
+}
