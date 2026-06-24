@@ -1,7 +1,7 @@
 {
 	"name": "@ceo.paludetto/pi-starship",
 	"type": "module",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Starship-style status bar for pi with mode, model, tokens and path segments",
 	"pi": {
 		"extensions": [
@@ -45,8 +45,12 @@
 		"pi-mcp-adapter": ">=2.0.0"
 	},
 	"peerDependenciesMeta": {
-		"@gotgenes/pi-permission-system": { "optional": true },
-		"pi-mcp-adapter": { "optional": true }
+		"@gotgenes/pi-permission-system": {
+			"optional": true
+		},
+		"pi-mcp-adapter": {
+			"optional": true
+		}
 	},
 	"devDependencies": {
 		"@ceo.paludetto/pi-utilities": "workspace:*",
