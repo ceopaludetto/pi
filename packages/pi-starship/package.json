@@ -15,7 +15,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ceopaludetto/pi",
+		"url": "git+https://github.com/ceopaludetto/pi.git",
 		"directory": "packages/pi-starship"
 	},
 	"sideEffects": false,
@@ -41,21 +41,20 @@
 		"@earendil-works/pi-ai": ">=0.79.0",
 		"@earendil-works/pi-coding-agent": ">=0.79.0",
 		"@earendil-works/pi-tui": ">=0.79.0",
-		"@gotgenes/pi-permission-system": ">=16.0.0",
 		"pi-mcp-adapter": ">=2.0.0"
 	},
 	"peerDependenciesMeta": {
-		"@gotgenes/pi-permission-system": {
-			"optional": true
-		},
 		"pi-mcp-adapter": {
 			"optional": true
 		}
 	},
+	"dependencies": {
+		"better-result": "catalog:"
+	},
 	"devDependencies": {
-		"@ceo.paludetto/pi-utilities": "workspace:*",
-		"@earendil-works/pi-ai": "^0.80.2",
-		"@earendil-works/pi-coding-agent": "^0.80.2",
-		"@earendil-works/pi-tui": "^0.80.2"
+		"@ceo.paludetto/pi-utilities": "workspace:",
+		"@earendil-works/pi-ai": "catalog:",
+		"@earendil-works/pi-coding-agent": "catalog:",
+		"@earendil-works/pi-tui": "catalog:"
 	}
 }

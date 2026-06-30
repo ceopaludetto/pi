@@ -4,12 +4,14 @@ import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { dim } from "@ceo.paludetto/pi-utilities";
 import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
 
-import { McpModule } from "./modules/mcp.module";
-import { createPhaseTracker, ModeModule } from "./modules/mode.module";
-import { ModelModule } from "./modules/model.module";
-import { StarshipModule } from "./modules/starship.module";
-import { TokensModule } from "./modules/tokens.module";
-import { YoloModule } from "./modules/yolo.module";
+import {
+	createPhaseTracker,
+	McpModule,
+	ModelModule,
+	ModeModule,
+	StarshipModule,
+	TokensModule,
+} from "./modules";
 
 const MODULE_SEPARATOR = dim(" ⋅ ");
 const HORIZONTAL_PADDING = " ";
@@ -26,12 +28,13 @@ export default function StarshipExtension(pi: ExtensionAPI) {
 	pi.on("session_start", async (_, context) => {
 		thinkingLevel = pi.getThinkingLevel();
 
-		const moduleContext: ModuleContext = {
-			...context,
+		// Preserve the lazy getters from the live extension context (e.g. `model`) instead of spreading, which would
+		// eagerly read them once and freeze the session-start values
+		const moduleContext = Object.defineProperties({
 			getStatuses: () => extensionStatuses,
 			getThinkingLevel: () => thinkingLevel,
 			getWidth: () => lastRenderWidth,
-		};
+		}, Object.getOwnPropertyDescriptors(context)) as ModuleContext;
 
 		const leftModules: Module[] = [
 			new StarshipModule(moduleContext),
@@ -39,7 +42,6 @@ export default function StarshipExtension(pi: ExtensionAPI) {
 		];
 
 		const rightModules: Module[] = [
-			new YoloModule(moduleContext),
 			new ModeModule(moduleContext, phaseTracker),
 			new ModelModule(moduleContext),
 			new TokensModule(moduleContext),
@@ -68,6 +70,7 @@ export default function StarshipExtension(pi: ExtensionAPI) {
 
 					if (width !== lastRenderWidth) {
 						lastRenderWidth = width;
+
 						for (const item of leftModules)
 							item.refresh();
 					}
@@ -97,6 +100,10 @@ export default function StarshipExtension(pi: ExtensionAPI) {
 
 	pi.on("thinking_level_select", (event, _) => {
 		thinkingLevel = event.level;
+		requestRender?.();
+	});
+
+	pi.on("model_select", () => {
 		requestRender?.();
 	});
 }
