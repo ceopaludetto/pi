@@ -34,8 +34,7 @@
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.cts",
 	"scripts": {
-		"build": "tsdown",
-		"test": "bun test"
+		"build": "tsdown"
 	},
 	"peerDependencies": {
 		"@earendil-works/pi-ai": ">=0.79.0",
@@ -52,7 +51,7 @@
 		"better-result": "catalog:"
 	},
 	"devDependencies": {
-		"@ceo.paludetto/pi-utilities": "workspace:",
+		"@ceo.paludetto/pi-utilities": "workspace:*",
 		"@earendil-works/pi-ai": "catalog:",
 		"@earendil-works/pi-coding-agent": "catalog:",
 		"@earendil-works/pi-tui": "catalog:"

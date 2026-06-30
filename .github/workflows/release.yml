@@ -20,8 +20,6 @@ jobs:
     name: Version and Publish
     runs-on: ubuntu-latest
 
-    if: "!contains(github.event.head_commit.message, 'Version packages')"
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
@@ -40,16 +38,16 @@ jobs:
         uses: jdx/mise-action@v4
 
       - name: Install Dependencies
-        run: bun install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: bun run build
+        run: pnpm run build
 
       - name: Create Release or Version PR
         uses: changesets/action@v1
         with:
-          version: bun run changeset:version
-          publish: bun run changeset:publish
+          version: pnpm run changeset:version
+          publish: pnpm run changeset:publish
 
           commit: "chore: version packages"
           title: Version packages
