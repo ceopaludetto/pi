@@ -15,7 +15,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ceopaludetto/pi",
+		"url": "git+https://github.com/ceopaludetto/pi.git",
 		"directory": "packages/pi-prompt"
 	},
 	"sideEffects": false,
@@ -42,8 +42,8 @@
 		"@earendil-works/pi-tui": ">=0.79.0"
 	},
 	"devDependencies": {
-		"@ceo.paludetto/pi-utilities": "workspace:*",
-		"@earendil-works/pi-coding-agent": "^0.80.2",
-		"@earendil-works/pi-tui": "^0.80.2"
+		"@ceo.paludetto/pi-utilities": "workspace:",
+		"@earendil-works/pi-coding-agent": "catalog:",
+		"@earendil-works/pi-tui": "catalog:"
 	}
 }

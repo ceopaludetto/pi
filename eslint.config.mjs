@@ -36,6 +36,7 @@ export default eslint(
 	{
 		rules: {
 			"node/prefer-global/process": "off",
+			"unicorn/throw-new-error": "off",
 
 			"perfectionist/sort-imports": ["warn", {
 				type: "alphabetical",

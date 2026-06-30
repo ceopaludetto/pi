@@ -1,4 +1,5 @@
-import type { AssistantMessage } from "@earendil-works/pi-ai";
+/* eslint-disable prefer-template */
+import type { SessionEntry } from "@earendil-works/pi-coding-agent";
 
 import { cyan, dim, formatTokenCount, green, yellow } from "@ceo.paludetto/pi-utilities";
 
@@ -6,33 +7,28 @@ import { Module } from "~/utilities/types";
 
 export class TokensModule extends Module {
 	public override render(): string | null {
-		const { inputTokens, outputTokens, totalCost } = this.aggregateUsage(this.context.sessionManager.getBranch());
+		const data = this.aggregateUsage(this.context.sessionManager.getBranch());
 
-		if (inputTokens === 0 && outputTokens === 0)
+		if (data.in === 0 && data.out === 0)
 			return null;
 
 		return [
-			cyan(`↑${formatTokenCount(inputTokens)}`),
-			green(`↓${formatTokenCount(outputTokens)}`),
-			yellow(`$${totalCost.toFixed(3)}`),
+			cyan("↑" + formatTokenCount(data.in)),
+			green("↓" + formatTokenCount(data.out)),
+			yellow("$" + data.total.toFixed(3)),
 		].join(dim("/"));
 	}
 
-	private aggregateUsage(branch: any[]): { inputTokens: number; outputTokens: number; totalCost: number } {
-		let inputTokens = 0;
-		let outputTokens = 0;
-		let totalCost = 0;
-
-		for (const entry of branch) {
+	private aggregateUsage(branch: SessionEntry[]) {
+		return branch.reduce((acc, entry) => {
 			if (entry.type !== "message" || entry.message.role !== "assistant")
-				continue;
+				return acc;
 
-			const message = entry.message as AssistantMessage;
-			inputTokens += message.usage.input;
-			outputTokens += message.usage.output;
-			totalCost += message.usage.cost.total;
-		}
+			acc.in += entry.message.usage.input;
+			acc.out += entry.message.usage.output;
+			acc.total += entry.message.usage.cost.total;
 
-		return { inputTokens, outputTokens, totalCost };
+			return acc;
+		}, { in: 0, out: 0, total: 0 });
 	}
 }

@@ -7,6 +7,6 @@ export default defineConfig({
 	entry: ["./src/index.ts"],
 	exports: { legacy: true },
 	format: ["cjs", "esm"],
-	publint: false,
+	publint: true,
 	sourcemap: true,
 });

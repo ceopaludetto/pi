@@ -8,7 +8,7 @@ const SERVER_RATIO_PATTERN = /(\d+)\/(\d+)/;
 
 export class McpModule extends Module {
 	public override render(): string | null {
-		const status = this.getStatuses().get(MCP_STATUS_KEY);
+		const status = this.context.getStatuses().get(MCP_STATUS_KEY);
 
 		if (!status)
 			return null;

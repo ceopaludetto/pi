@@ -11,11 +11,6 @@ export abstract class Module {
 		protected readonly context: ModuleContext,
 	) {}
 
-	protected getStatuses(): ReadonlyMap<string, string> {
-		return this.context.getStatuses();
-	}
-
 	public abstract render(): string | null;
-
 	public async refresh(): Promise<void> {}
 }
