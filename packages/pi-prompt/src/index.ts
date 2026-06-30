@@ -26,7 +26,7 @@ class PromptEditor extends CustomEditor {
 		const lines = rendered.slice(1);
 		const bottomBorderIndex = lines.findIndex(isBorderLine);
 
-		const result: string[] = [];
+		const res: string[] = [];
 		let isFirstContentLine = true;
 
 		for (let index = 0; index < lines.length; index++) {
@@ -34,11 +34,11 @@ class PromptEditor extends CustomEditor {
 				continue;
 
 			const prefix = isFirstContentLine ? PROMPT_PREFIX : PROMPT_INDENT;
-			result.push(HORIZONTAL_PADDING + prefix + lines[index] + HORIZONTAL_PADDING);
+			res.push(HORIZONTAL_PADDING + prefix + lines[index] + HORIZONTAL_PADDING);
 			isFirstContentLine = false;
 		}
 
-		return result;
+		return res;
 	}
 }
 
