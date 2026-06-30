@@ -1,7 +1,7 @@
 {
 	"name": "@ceo.paludetto/pi-utilities",
 	"type": "module",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Shared internal color and formatting utilities for pi packages",
 	"author": {
 		"name": "Carlos Paludetto",

@@ -1,5 +1,11 @@
 # @ceo.paludetto/pi-utilities
 
+## 0.0.4
+
+### Patch Changes
+
+- [#9](https://github.com/ceopaludetto/pi/pull/9) [`807ad28`](https://github.com/ceopaludetto/pi/commit/807ad2839651367485209901c76e23d8d90401c7) - Publish utilities
+
 ## 0.0.3
 
 ### Patch Changes

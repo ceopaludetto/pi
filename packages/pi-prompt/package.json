@@ -1,7 +1,7 @@
 {
 	"name": "@ceo.paludetto/pi-prompt",
 	"type": "module",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Minimal prompt editor for pi that replaces bordered input with a π prefix",
 	"pi": {
 		"extensions": [
