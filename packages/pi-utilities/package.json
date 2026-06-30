@@ -13,6 +13,10 @@
 		"url": "git+https://github.com/ceopaludetto/pi.git",
 		"directory": "packages/pi-utilities"
 	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
 	"sideEffects": false,
 	"exports": {
 		".": {
