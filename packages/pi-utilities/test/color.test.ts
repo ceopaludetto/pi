@@ -1,4 +1,4 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, test } from "@rstest/core";
 
 import { bold, cyan, dim, green, hyperlink, magenta, rainbow, yellow } from "../src/color";
 
@@ -49,10 +49,10 @@ describe("hyperlink", () => {
 	});
 
 	test("uses the provided display text, not the url", () => {
-		const res = hyperlink("https://a.com", "label");
+		const result = hyperlink("https://a.com", "label");
 
-		expect(res).toContain("label");
-		expect(res).not.toContain("https://a.com\x1B\\https://a.com");
+		expect(result).toContain("label");
+		expect(result).not.toContain("https://a.com\x1B\\https://a.com");
 	});
 });
 

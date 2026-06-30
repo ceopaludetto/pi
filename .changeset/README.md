@@ -9,7 +9,7 @@ All publishable packages share a single version (fixed mode, see the `fixed` gro
 When you make a change that should be released, add a changeset from the repository root:
 
 ```sh
-bun changeset
+pnpm changeset
 ```
 
 This writes a new markdown file under `.changeset/` describing the kind of bump (major / minor / patch) and a changelog entry for each affected package. Commit that file alongside your code change.

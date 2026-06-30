@@ -1,4 +1,4 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, test } from "@rstest/core";
 
 import { capitalizeFirst, formatProviderName, formatTokenCount, stripAnsi } from "../src/format";
 

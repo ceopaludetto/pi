@@ -2,4 +2,5 @@
 lockfile = true
 
 [tools]
-bun = "latest"
+node = "lts"
+pnpm = "11.9.0"

@@ -1,0 +1,29 @@
+shellEmulator: true
+trustPolicy: no-downgrade
+
+packages:
+  - packages/*
+
+allowBuilds:
+  "@google/genai": true
+  koffi: true
+  protobufjs: true
+
+catalog:
+  "@antfu/eslint-config": ^9.1.0
+  "@changesets/changelog-github": ^0.7.0
+  "@changesets/cli": ^2.31.0
+  "@earendil-works/pi-ai": ^0.80.2
+  "@earendil-works/pi-coding-agent": ^0.80.2
+  "@earendil-works/pi-tui": ^0.80.2
+  "@rstest/core": ^0.10.6
+  "@total-typescript/tsconfig": ^1.0.4
+  "@types/node": ^26.0.0
+  better-result: ^2.9.2
+  eslint: ^10.5.0
+  eslint-plugin-format: ^2.0.1
+  publint: ^0.3.21
+  sherif: ^1.12.0
+  tsdown: ^0.22.3
+  turbo: ^2.10.0
+  typescript: ^6.0.3

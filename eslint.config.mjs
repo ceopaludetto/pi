@@ -56,7 +56,7 @@ export default eslint(
 					{ groupName: "virtual", elementNamePattern: "^virtual\\:" },
 				],
 				newlinesBetween: 1,
-				environment: "bun",
+				environment: "node",
 			}],
 		},
 	},

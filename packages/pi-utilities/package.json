@@ -22,6 +22,9 @@
 	"types": "./dist/index.d.cts",
 	"scripts": {
 		"build": "tsdown",
-		"test": "bun test"
+		"test": "rstest run"
+	},
+	"devDependencies": {
+		"@rstest/core": "catalog:"
 	}
 }
