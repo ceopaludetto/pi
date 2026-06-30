@@ -1,5 +1,11 @@
 # @ceo.paludetto/pi-utilities
 
+## 0.0.3
+
+### Patch Changes
+
+- [#7](https://github.com/ceopaludetto/pi/pull/7) [`a4a8d16`](https://github.com/ceopaludetto/pi/commit/a4a8d16457bf5344d70c8b09b82b8f355e306baf) - Migrate to PNPM + Node + RSTest
+
 ## 0.0.2
 
 ### Patch Changes
