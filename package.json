@@ -13,11 +13,10 @@
 		"url": "git+https://github.com/ceopaludetto/pi"
 	},
 	"scripts": {
-		"build": "turbo build",
-		"start": "TURBO_UI=true turbo watch start --filter=@clutchify/application",
+		"build": "vp run -r build",
 		"lint": "eslint . && sherif",
 		"lint:fix": "eslint . --fix && sherif --fix",
-		"test": "turbo test -- --passWithNoTests",
+		"test": "vp run -r test",
 		"changeset:version": "changeset version && pnpm install --no-frozen-lockfile",
 		"changeset:publish": "pnpm publish --recursive --access public --no-git-checks && changeset tag"
 	},
@@ -25,15 +24,13 @@
 		"@antfu/eslint-config": "catalog:",
 		"@changesets/changelog-github": "catalog:",
 		"@changesets/cli": "catalog:",
-		"@rstest/core": "catalog:",
 		"@total-typescript/tsconfig": "catalog:",
 		"@types/node": "catalog:",
 		"eslint": "catalog:",
 		"eslint-plugin-format": "catalog:",
 		"publint": "catalog:",
 		"sherif": "catalog:",
-		"tsdown": "catalog:",
-		"turbo": "catalog:",
-		"typescript": "catalog:"
+		"typescript": "catalog:",
+		"vite-plus": "catalog:"
 	}
 }

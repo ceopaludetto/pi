@@ -1,0 +1,43 @@
+$ rstest run --passWithNoTests
+---
+tool: "@rstest/core@0.10.6"
+timestamp: "2026-08-25T16:19:52.193Z"
+runtime: {"node":"v24.16.0","platform":"darwin","cwd":"/Users/carlos/Developer/JavaScript/PI/packages/pi-utilities"}
+---
+
+# Rstest Test Execution Report
+
+## Summary
+
+```json
+{
+  "status": "pass",
+  "counts": {
+    "testFiles": 2,
+    "failedFiles": 0,
+    "tests": 32,
+    "failedTests": 0,
+    "passedTests": 32,
+    "skippedTests": 0,
+    "todoTests": 0
+  },
+  "durationMs": {
+    "total": 299,
+    "build": 138,
+    "tests": 161
+  },
+  "snapshot": {
+    "added": 0,
+    "updated": 0,
+    "unmatched": 0,
+    "removed": 0,
+    "unchecked": 0
+  }
+}
+```
+
+## Failures
+
+No test failures reported.
+
+Note: all tests passed. Lists omitted for brevity.

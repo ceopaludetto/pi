@@ -29,10 +29,10 @@
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.cts",
 	"scripts": {
-		"build": "tsdown",
-		"test": "rstest run"
+		"build": "vp pack",
+		"test": "vp test"
 	},
 	"devDependencies": {
-		"@rstest/core": "catalog:"
+		"vite-plus": "catalog:"
 	}
 }

@@ -3,8 +3,9 @@ import type { Result as ResultType } from "better-result";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 
-import { Result, TaggedError } from "better-result";
+import { Result } from "better-result";
 
+import { StarshipPromptError } from "~/configuration";
 import { Module } from "~/utilities/types";
 
 const execFileAsync = promisify(execFile);
@@ -19,13 +20,6 @@ const STARSHIP_ARGUMENTS = [
 
 const ESCAPE_CHARACTER = "\x1B";
 const TRAILING_SGR_PATTERN = new RegExp(`${ESCAPE_CHARACTER}\\[[0-9;]*m+$`, "g");
-
-class StarshipPromptError extends TaggedError("StarshipPromptError")<{ cause: unknown; message: string }>() {
-	public constructor(args: { cause: unknown }) {
-		const detail = args.cause instanceof Error ? args.cause.message : String(args.cause);
-		super({ ...args, message: `Failed to render starship prompt: ${detail}` });
-	}
-}
 
 export class StarshipModule extends Module {
 	private prompt: string | null = null;

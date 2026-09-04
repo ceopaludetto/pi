@@ -1,4 +1,4 @@
-import { describe, expect, test } from "@rstest/core";
+import { describe, expect, test } from "vite-plus/test";
 
 import { bold, cyan, dim, green, hyperlink, magenta, rainbow, yellow } from "../src/color";
 

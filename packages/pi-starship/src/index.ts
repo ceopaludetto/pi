@@ -28,8 +28,6 @@ export default function StarshipExtension(pi: ExtensionAPI) {
 	pi.on("session_start", async (_, context) => {
 		thinkingLevel = pi.getThinkingLevel();
 
-		// Preserve the lazy getters from the live extension context (e.g. `model`) instead of spreading, which would
-		// eagerly read them once and freeze the session-start values
 		const moduleContext = Object.defineProperties({
 			getStatuses: () => extensionStatuses,
 			getThinkingLevel: () => thinkingLevel,
