@@ -9,5 +9,8 @@ dist
 .env*
 !.env.example
 
+# Skills
+.pi/skills
+
 # macOS
 .DS_Store
