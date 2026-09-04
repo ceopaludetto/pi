@@ -21,25 +21,25 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v6
 
-      - name: Cache Turbo
-        uses: actions/cache@v5
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-
       - name: Setup Mise
         uses: jdx/mise-action@v4
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Cache Vite Task
+        uses: actions/cache@v5
+        with:
+          path: node_modules/.vite/task-cache
+          key: ${{ runner.os }}-vite-task-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-vite-task-
+
       - name: Build
-        run: pnpm run build
+        run: mise exec -- vp run -r build
 
       - name: Lint
-        run: pnpm turbo lint
+        run: mise exec -- pnpm run lint
 
       - name: Test
-        run: pnpm run test
+        run: mise exec -- vp run -r test

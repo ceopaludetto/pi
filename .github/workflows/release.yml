@@ -26,22 +26,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Cache Turbo
-        uses: actions/cache@v5
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-
       - name: Setup Mise
         uses: jdx/mise-action@v4
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Cache Vite Task
+        uses: actions/cache@v5
+        with:
+          path: node_modules/.vite/task-cache
+          key: ${{ runner.os }}-vite-task-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-vite-task-
+
       - name: Build
-        run: pnpm run build
+        run: mise exec -- vp run -r build
 
       - name: Create Release or Version PR
         uses: changesets/action@v1

@@ -1,0 +1,22 @@
+$ tsdown
+[34mℹ[39m [34mtsdown v0.22.3[39m powered by [38;2;255;126;23mrolldown v1.1.3[39m
+[34mℹ[39m config file: [4m/Users/carlos/Developer/JavaScript/PI/packages/pi-utilities/tsdown.config.ts[24m 
+[34mℹ[39m entry: [34m./src/index.ts[39m
+[34mℹ[39m tsconfig: [34mtsconfig.json[39m
+[34mℹ[39m Build start
+[34mℹ[39m Cleaning 8 files
+[34mℹ[39m [33m[CJS][39m [2mdist/[22m[1mindex.cjs[22m      [2m2.00 kB[22m [2m│ gzip: 0.84 kB[22m
+[34mℹ[39m [33m[CJS][39m [2mdist/[22mindex.cjs.map  [2m3.23 kB[22m [2m│ gzip: 1.23 kB[22m
+[34mℹ[39m [33m[CJS][39m 2 files, total: 5.23 kB
+[34mℹ[39m [34m[ESM][39m [2mdist/[22m[1mindex.mjs[22m        [2m1.70 kB[22m [2m│ gzip: 0.75 kB[22m
+[34mℹ[39m [34m[ESM][39m [2mdist/[22mindex.mjs.map    [2m3.23 kB[22m [2m│ gzip: 1.23 kB[22m
+[34mℹ[39m [34m[ESM][39m [2mdist/[22mindex.d.mts.map  [2m0.43 kB[22m [2m│ gzip: 0.23 kB[22m
+[34mℹ[39m [34m[ESM][39m [2mdist/[22m[32m[1mindex.d.mts[22m[39m      [2m0.87 kB[22m [2m│ gzip: 0.30 kB[22m
+[34mℹ[39m [34m[ESM][39m 4 files, total: 6.23 kB
+[32m✔[39m Build complete in [32m524ms[39m
+[34mℹ[39m [33m[CJS][39m [2mdist/[22mindex.d.cts.map  [2m0.43 kB[22m [2m│ gzip: 0.23 kB[22m
+[34mℹ[39m [33m[CJS][39m [2mdist/[22m[32m[1mindex.d.cts[22m[39m      [2m0.87 kB[22m [2m│ gzip: 0.30 kB[22m
+[34mℹ[39m [33m[CJS][39m 2 files, total: 1.30 kB
+[32m✔[39m Build complete in [32m525ms[39m
+[34mℹ[39m [2m[publint][22m The package does not specify the "engines.node" field. Consumers may install it on an unsupported Node.js version. Consider adding the field with your actual minimum supported Node.js version. (This may be a breaking change)
+[34mℹ[39m [2m[publint][22m The package publishes internal tests or config files. You can use pkg.files to only publish certain files and save user bandwidth.

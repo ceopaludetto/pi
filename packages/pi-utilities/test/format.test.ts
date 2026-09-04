@@ -1,4 +1,4 @@
-import { describe, expect, test } from "@rstest/core";
+import { describe, expect, test } from "vite-plus/test";
 
 import { capitalizeFirst, formatProviderName, formatTokenCount, stripAnsi } from "../src/format";
 
