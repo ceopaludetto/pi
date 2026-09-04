@@ -3,9 +3,12 @@ import { z } from "zod";
 
 export const PLUGIN_NAME = "@ceo.paludetto/pi-prompt";
 
-export const promptSettingsSchema = z.object({
-	horizontalPadding: z.number().int().min(0).default(0),
-}).prefault({});
+export const promptSettingsSchema = z
+	.object({
+		horizontalPadding: z.number().int().min(0).default(0),
+		promptPrefix: z.string().default("π"),
+	})
+	.prefault({});
 
 export type PromptSettings = z.infer<typeof promptSettingsSchema>;
 

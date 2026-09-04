@@ -7,10 +7,6 @@ import { visibleWidth } from "@earendil-works/pi-tui";
 
 import { promptSettings } from "~/configuration";
 
-const PROMPT_PREFIX = "π ";
-const PROMPT_PREFIX_WIDTH = visibleWidth(PROMPT_PREFIX);
-const PROMPT_INDENT = " ".repeat(PROMPT_PREFIX_WIDTH);
-
 type CustomEditorArguments = ConstructorParameters<typeof CustomEditor>;
 
 function isBorderLine(line: string): boolean {
@@ -20,8 +16,9 @@ function isBorderLine(line: string): boolean {
 }
 
 class PromptEditor extends CustomEditor {
-	private readonly settings: PromptSettings;
 	private readonly padding: string;
+	private readonly promptIndent: string;
+	private readonly promptPrefix: string;
 
 	public constructor(
 		tui: CustomEditorArguments[0],
@@ -30,16 +27,19 @@ class PromptEditor extends CustomEditor {
 		settings: PromptSettings,
 	) {
 		super(tui, theme, keybindings);
-		this.settings = settings;
 		this.padding = " ".repeat(settings.horizontalPadding);
+		this.promptPrefix = `${settings.promptPrefix.trimEnd()} `;
+		this.promptIndent = " ".repeat(visibleWidth(this.promptPrefix));
 	}
 
 	public override render(width: number): string[] {
-		const innerWidth = Math.max(1, width - PROMPT_PREFIX_WIDTH - this.settings.horizontalPadding * 2);
+		const innerWidth = Math.max(
+			1,
+			width - visibleWidth(this.promptPrefix) - this.padding.length * 2,
+		);
 		const rendered = super.render(innerWidth);
 
-		if (rendered.length === 0)
-			return rendered;
+		if (rendered.length === 0) return rendered;
 
 		const lines = rendered.slice(1);
 		const bottomBorderIndex = lines.findIndex(isBorderLine);
@@ -48,10 +48,9 @@ class PromptEditor extends CustomEditor {
 		let isFirstContentLine = true;
 
 		for (let index = 0; index < lines.length; index++) {
-			if (index === bottomBorderIndex)
-				continue;
+			if (index === bottomBorderIndex) continue;
 
-			const prefix = isFirstContentLine ? PROMPT_PREFIX : PROMPT_INDENT;
+			const prefix = isFirstContentLine ? this.promptPrefix : this.promptIndent;
 			res.push(this.padding + prefix + lines[index] + this.padding);
 			isFirstContentLine = false;
 		}
@@ -62,14 +61,13 @@ class PromptEditor extends CustomEditor {
 
 export default function PromptExtension(pi: ExtensionAPI) {
 	pi.on("session_start", async (_, context) => {
-		if (context.mode !== "tui")
-			return;
+		if (context.mode !== "tui") return;
 
 		const settings = await promptSettings.load();
-		if (settings.isErr())
-			return;
+		if (settings.isErr()) return;
 
-		context.ui.setEditorComponent((tui, theme, keybindings) =>
-			new PromptEditor(tui, theme, keybindings, settings.value));
+		context.ui.setEditorComponent(
+			(tui, theme, keybindings) => new PromptEditor(tui, theme, keybindings, settings.value),
+		);
 	});
 }
