@@ -67,6 +67,9 @@ export default eslint(
 
 			// Modules
 			"**/node_modules/**/*",
+
+			// Skill lock
+			"skills-lock.json",
 		],
 	},
 );
