@@ -28,6 +28,7 @@ class PromptEditor extends CustomEditor {
 	) {
 		super(tui, theme, keybindings);
 		this.padding = " ".repeat(settings.horizontalPadding);
+
 		this.promptPrefix = `${settings.promptPrefix.trimEnd()} `;
 		this.promptIndent = " ".repeat(visibleWidth(this.promptPrefix));
 	}
@@ -39,7 +40,8 @@ class PromptEditor extends CustomEditor {
 		);
 		const rendered = super.render(innerWidth);
 
-		if (rendered.length === 0) return rendered;
+		if (rendered.length === 0)
+			return rendered;
 
 		const lines = rendered.slice(1);
 		const bottomBorderIndex = lines.findIndex(isBorderLine);
@@ -48,7 +50,8 @@ class PromptEditor extends CustomEditor {
 		let isFirstContentLine = true;
 
 		for (let index = 0; index < lines.length; index++) {
-			if (index === bottomBorderIndex) continue;
+			if (index === bottomBorderIndex)
+				continue;
 
 			const prefix = isFirstContentLine ? this.promptPrefix : this.promptIndent;
 			res.push(this.padding + prefix + lines[index] + this.padding);
@@ -61,10 +64,12 @@ class PromptEditor extends CustomEditor {
 
 export default function PromptExtension(pi: ExtensionAPI) {
 	pi.on("session_start", async (_, context) => {
-		if (context.mode !== "tui") return;
+		if (context.mode !== "tui")
+			return;
 
 		const settings = await promptSettings.load();
-		if (settings.isErr()) return;
+		if (settings.isErr())
+			return;
 
 		context.ui.setEditorComponent(
 			(tui, theme, keybindings) => new PromptEditor(tui, theme, keybindings, settings.value),
