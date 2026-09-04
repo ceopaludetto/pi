@@ -1,5 +1,20 @@
 # @ceo.paludetto/pi-prompt
 
+## 0.1.0
+
+### Minor Changes
+
+- [#11](https://github.com/ceopaludetto/pi/pull/11) [`0651b4b`](https://github.com/ceopaludetto/pi/commit/0651b4b887cc1b3378142b4ed64e90420fc5ee3a) - Add a `horizontalPadding` setting (a non-negative integer, defaulting to `0`) that controls the blank columns rendered on each side of the prompt. Settings are loaded through `@ceo.paludetto/pi-settings` from `~/.pi/agent/settings/@ceo.paludetto/pi-prompt/settings.json`.
+
+### Patch Changes
+
+- [#11](https://github.com/ceopaludetto/pi/pull/11) [`2463094`](https://github.com/ceopaludetto/pi/commit/2463094876b1cdb971fa4090d8f092faa33c1f3a) - Add a configurable `promptPrefix` setting, defaulting to `"π"` with an automatic trailing space.
+
+- [#11](https://github.com/ceopaludetto/pi/pull/11) [`2463094`](https://github.com/ceopaludetto/pi/commit/2463094876b1cdb971fa4090d8f092faa33c1f3a) - Add Pi Package Gallery discoverability metadata.
+
+- Updated dependencies [[`0651b4b`](https://github.com/ceopaludetto/pi/commit/0651b4b887cc1b3378142b4ed64e90420fc5ee3a), [`0651b4b`](https://github.com/ceopaludetto/pi/commit/0651b4b887cc1b3378142b4ed64e90420fc5ee3a), [`0651b4b`](https://github.com/ceopaludetto/pi/commit/0651b4b887cc1b3378142b4ed64e90420fc5ee3a)]:
+  - @ceo.paludetto/pi-settings@0.1.0
+
 ## 0.0.4
 
 ### Patch Changes

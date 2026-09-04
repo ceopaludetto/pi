@@ -1,7 +1,7 @@
 {
 	"name": "@ceo.paludetto/pi-settings",
 	"type": "module",
-	"version": "0.0.4",
+	"version": "0.1.0",
 	"description": "Standard-schema backed settings loader for pi plugins and skills",
 	"author": {
 		"name": "Carlos Paludetto",
