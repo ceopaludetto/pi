@@ -1,5 +1,15 @@
 # @ceo.paludetto/pi-starship
 
+## 0.1.0
+
+### Patch Changes
+
+- [#11](https://github.com/ceopaludetto/pi/pull/11) [`2463094`](https://github.com/ceopaludetto/pi/commit/2463094876b1cdb971fa4090d8f092faa33c1f3a) - Add Pi Package Gallery discoverability metadata.
+
+- [#11](https://github.com/ceopaludetto/pi/pull/11) [`0651b4b`](https://github.com/ceopaludetto/pi/commit/0651b4b887cc1b3378142b4ed64e90420fc5ee3a) - Reorganize internal source layout: errors now live in `configuration/errors.ts` with a barrel `configuration/index.ts`, path helpers move to `utilities/paths.ts` with a `utilities/index.ts` barrel, and the settings accessor lives directly in `src/index.ts`. Missing-file reads now recover through `better-result` instead of a native `try/catch`. The public API is unchanged.
+
+- [#11](https://github.com/ceopaludetto/pi/pull/11) [`0651b4b`](https://github.com/ceopaludetto/pi/commit/0651b4b887cc1b3378142b4ed64e90420fc5ee3a) - Upgrade `better-result` to 3.0.1 and migrate `TaggedError` declarations to the v3 class-heritage syntax.
+
 ## 0.0.4
 
 ### Patch Changes
